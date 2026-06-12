@@ -4,3 +4,4 @@ torchvision
 pillow
 python-dotenv
 gunicorn
+flask-cors

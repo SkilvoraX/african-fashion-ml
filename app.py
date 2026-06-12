@@ -6,10 +6,15 @@ from flask import Flask, request, jsonify
 from PIL import Image
 from torchvision import models, transforms
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
+
+allowed_origins = os.getenv("URLS").split(",")
+
+CORS(app, origins=allowed_origins)
 
 # 1. Define the exact same model architecture used during training
 def load_textile_model(checkpoint_path):
